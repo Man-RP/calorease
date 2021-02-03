@@ -1,8 +1,8 @@
 import {action} from '@storybook/addon-actions';
 import {storiesOf} from '@storybook/react-native';
 import React, {FC} from 'react';
-import {TextInput} from '../atoms';
-import CenterView from '../../../storybook/stories/CenterView';
+import {TextInput} from '..';
+import CenterView from '../../../../storybook/stories/CenterView';
 import {withKnobs, object, text, radios, boolean} from '@storybook/addon-knobs';
 
 export const actions = {

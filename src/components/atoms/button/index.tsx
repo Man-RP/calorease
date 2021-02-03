@@ -6,7 +6,7 @@ import {
   ViewStyle,
   TextStyle,
 } from 'react-native';
-import {RFValue} from '../../constants';
+import {RFValue} from '../../../constants';
 
 interface Props {
   title: string;

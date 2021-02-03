@@ -7,7 +7,7 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
-import {isRTL, RFValue} from '../../constants';
+import {isRTL, RFValue} from '../../../constants';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 interface Props {

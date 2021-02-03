@@ -1,8 +1,8 @@
 import {action} from '@storybook/addon-actions';
 import {storiesOf} from '@storybook/react-native';
 import React from 'react';
-import Button from '../atoms/Button';
-import CenterView from '../../../storybook/stories/CenterView';
+import Button from '.';
+import CenterView from '../../../../storybook/stories/CenterView';
 import {boolean, text, withKnobs} from '@storybook/addon-knobs';
 
 storiesOf('Button', module)
