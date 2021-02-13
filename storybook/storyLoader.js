@@ -5,12 +5,16 @@
 
 function loadStories() {
   require('../src/components/atoms/button/Button.stories');
+  require('../src/components/atoms/listItem/ListItem.stories');
   require('../src/components/atoms/textInput/textInput.stories');
+  require('../src/components/atoms/list/List.stories');
 }
 
 const stories = [
   '../src/components/atoms/button/Button.stories',
+  '../src/components/atoms/listItem/ListItem.stories',
   '../src/components/atoms/textInput/textInput.stories',
+  '../src/components/molecules/list/List.stories',
 ];
 
 module.exports = {
