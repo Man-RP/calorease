@@ -14,7 +14,7 @@ export default LineDivider;
 
 const styles = StyleSheet.create({
   line: {
-    borderWidth: 1,
+    borderWidth: 0.5,
     borderColor: '#E6E6E6',
   },
 });
