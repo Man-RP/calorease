@@ -1,4 +1,4 @@
-import React, {Children, FC} from 'react';
+import React, {FC} from 'react';
 import {
   FlatList,
   StyleSheet,
@@ -35,7 +35,7 @@ interface Props {
   footerPressCallback?: Function;
 }
 
-const Table = (props: Props) => {
+const Table: FC<Props> = (props: Props) => {
   const {
     rowsData,
     containerStyle,
@@ -46,20 +46,20 @@ const Table = (props: Props) => {
     footerPressCallback = () => null,
   } = props;
 
-  const Row = ({
-    header = false,
-    data,
-    width,
-    align,
-    textStyles,
-    onRemovePress = () => null,
-  }: {
+  const Row: FC<{
     header?: boolean;
     data: string[];
     width: number[];
     align?: ('center' | 'auto' | 'left' | 'right' | 'justify' | undefined)[];
     textStyles?: TextStyle[];
     onRemovePress?: Function;
+  }> = ({
+    header = false,
+    data,
+    width,
+    align,
+    textStyles,
+    onRemovePress = () => null,
   }) => {
     return (
       <View

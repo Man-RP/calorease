@@ -4,6 +4,7 @@ import {
   Text,
   TextStyle,
   TouchableOpacity,
+  TouchableOpacityProps,
   View,
   ViewStyle,
 } from 'react-native';
@@ -11,9 +12,8 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import {isRTL, RFValue, screenHeight} from '../../../constants';
 import {IListItem} from '../list';
 
-interface Props {
+interface Props extends TouchableOpacityProps {
   item: IListItem;
-  onPress?: Function;
   containerStyle?: ViewStyle;
   titleStyle?: TextStyle;
   subtitleStyle?: TextStyle;
@@ -23,18 +23,18 @@ interface Props {
 
 const ListItem: FC<Props> = (props: Props) => {
   const {
-    onPress,
     containerStyle,
     titleStyle,
     subtitleStyle,
     iconStyle,
     valueStyle,
+    ...others
   } = props;
 
   const {title, subtitle, value, icon} = props.item;
 
   return (
-    <TouchableOpacity onPress={() => (onPress ? onPress() : null)}>
+    <TouchableOpacity {...others}>
       <View style={[styles.container, containerStyle]}>
         {subtitle ? (
           <View style={styles.titleContainer}>
