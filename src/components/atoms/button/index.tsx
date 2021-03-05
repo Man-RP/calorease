@@ -1,22 +1,22 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {
   TouchableHighlight,
   StyleSheet,
   Text,
   ViewStyle,
   TextStyle,
+  TouchableHighlightProps,
 } from 'react-native';
 import {RFValue} from '../../../constants';
 
-interface Props {
+interface Props extends TouchableHighlightProps {
   title: string;
-  onPress: () => void;
   wide?: boolean;
   style?: ViewStyle;
   textStyle?: TextStyle;
 }
-const Button = (props: Props) => {
-  const {onPress, title, style, wide, textStyle} = props;
+const Button: FC<Props> = (props: Props) => {
+  const {title, style, wide, textStyle, ...others} = props;
   return (
     <TouchableHighlight
       underlayColor={'#fff'}
@@ -25,7 +25,7 @@ const Button = (props: Props) => {
         {width: wide ? RFValue(320) : RFValue(178)},
         style,
       ]}
-      onPress={onPress}>
+      {...others}>
       <Text
         style={[
           styles.buttonText,

@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {
   StyleProp,
   StyleSheet,
   TextInput,
+  TextInputProps,
   TextStyle,
   View,
   ViewStyle,
@@ -10,29 +11,17 @@ import {
 import {isRTL, RFValue} from '../../../constants';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-interface Props {
-  onChangeText: React.Dispatch<React.SetStateAction<string>>;
-  value: string;
-  placeholder: string;
+interface Props extends TextInputProps {
   width?: number | string;
   height?: number | string;
   search?: boolean;
   rtl?: boolean;
   containerStyle?: StyleProp<ViewStyle>;
   style?: StyleProp<TextStyle>;
-  maxLength?: number;
 }
 
-const Input = (props: Props) => {
-  const {
-    onChangeText,
-    value,
-    placeholder,
-    search,
-    containerStyle,
-    style,
-    maxLength = 32,
-  } = props;
+const Input: FC<Props> = (props: Props) => {
+  const {search, containerStyle, style, ...others} = props;
 
   return (
     <View
@@ -51,15 +40,13 @@ const Input = (props: Props) => {
           {
             fontSize: search ? RFValue(13) : RFValue(18),
             marginRight: search ? 3 : 0,
-            textAlign: value.length === 0 ? 'right' : 'auto',
+            textAlign:
+              others.value && others.value.length === 0 ? 'right' : 'auto',
           },
           style,
         ]}
-        onChangeText={(text) => onChangeText(text)}
-        maxLength={maxLength}
-        value={value}
         placeholderTextColor={'#E6E6E6'}
-        placeholder={placeholder}
+        {...others}
       />
     </View>
   );

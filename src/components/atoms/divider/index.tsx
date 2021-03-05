@@ -1,11 +1,11 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {StyleSheet, Text, View, ViewStyle} from 'react-native';
 
 interface Props {
   style?: ViewStyle;
 }
 
-const LineDivider = (props: Props) => {
+const LineDivider: FC<Props> = (props: Props) => {
   const {style} = props;
   return <View style={[styles.line, style]} />;
 };

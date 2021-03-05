@@ -10,16 +10,18 @@ export interface IListItem {
   icon?: boolean;
 }
 
-const List = (props: FlatListProps<IListItem>) => {
-  const {data, style} = props;
+const List: FC<FlatListProps<IListItem>> = (
+  props: FlatListProps<IListItem>,
+) => {
+  const {style, ...others} = props;
   const height = useRef<number>(
-    data ? 2 + data.length * 2 + 3 * 0.0916 * screenHeight : 0,
+    others.data ? 2 + others.data.length * 2 + 3 * 0.0916 * screenHeight : 0,
   );
 
   return (
     <>
       <FlatList
-        {...props}
+        {...others}
         style={[styles.container, {height: height.current}, style]}
         ItemSeparatorComponent={() => <LineDivider />}
         ListHeaderComponent={() => <LineDivider />}
