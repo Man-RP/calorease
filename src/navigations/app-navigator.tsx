@@ -1,23 +1,28 @@
+import React, {FC} from 'react';
 import {createDrawerNavigator} from '@react-navigation/drawer';
+import {headerOptions, screenHeight} from '../constants';
+import {HomeScreen} from '../scenes';
 
-import HomeScreen from '_scenes/home';
-import AboutScreen from '_scenes/about';
-
-const DrawerNavigatorConfig = {
-  initialRouteName: 'Home',
-  header: null,
-  headerMode: 'none',
+export type AppDrawerParamList = {
+  Home: undefined;
 };
 
-const RouteConfigs = {
-  Home: {
-    screen: HomeScreen,
-  },
-  About: {
-    screen: AboutScreen,
-  },
+const Drawer = createDrawerNavigator<AppDrawerParamList>();
+
+const MainNavigation: FC = () => {
+  return (
+    <Drawer.Navigator
+      initialRouteName={'Home'}
+      screenOptions={{
+        ...headerOptions,
+      }}>
+      <Drawer.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{title: 'בית'}}
+      />
+    </Drawer.Navigator>
+  );
 };
 
-const AppNavigator = createDrawerNavigator(RouteConfigs, DrawerNavigatorConfig);
-
-export default AppNavigator;
+export default MainNavigation;
